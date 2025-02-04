@@ -1,0 +1,44 @@
+
+Oppgave 1
+Oppgaven starter med at jeg skal ha en funksjon i C som tar heltaller
+som argumenter og bytter verdiene mellom heltall, 
+
+funksjonen skal heller ikke returnere noe. endringene på heltallet 
+skal være synlig eller gyldig på utsiden av funksjonen.
+'
+
+
+Funksjonen skal ikke returnere noe betyr at funksjonen skal ha void istede for char 
+eller int slik at den ikke printer ut et char eller int. forstår ikke egentlig hva det skal bety men jeg gjorde som jeg kunne.
+Oppgaven burde være svart.
+//true
+
+oppgave 2: 
+
+Lag en funksjon i C som returnerer True dersom studenten kan gå opp til eksamen og False 
+dersom studenten ikke får gå opp til eksamen. Funksjonen tar et argument som er en 
+tabell(array). Beskriv i koden hvordan du velger å sette opp tabellen(arrayet).
+
+
+jeg tror at dette vil si at vi leter etter et eller annet som gjør at eleven ikke kan komme inn på eksamen
+siden dette er et praktisk eksempel vil jeg si at det kreves at vi har en array som bruker et eller annet for å definer at studenten er "true" eller "false"
+dette tror jeg vil være veldig objekt orientert
+
+
+
+oppgave 3: dette ser ut som en lignende oppgave vi har før men jeg er litt usikker jeg vil bruke lignende premise her også konverter jeg bokstavene til char og reverserer det så sender jeg ut ka en det blir ved bruk av array 
+
+oppgave 4: 
+Lag en funksjon i C som beregner gjennomsnittet av en tabell(array) med heltall, hvor det minste 
+tallet og det største tallet er tatt bort. Tabellen(arrayet) er ikke sortert. 
+F.eks. [3,5,2,8,1] vil gi gjennomsnittet 3.333....
+
+dette virker ikke så vanskelig 
+
+oppgave  5 ligner på den at trenger pekere noe jeg ikke har mye forståelse over 
+jeg skjønner ikke pekere så har ikke mulighet å svare 
+
+
+de eneste oppgavene jeg klarte å besvare var oppgave 1 og 2, jeg sliter med resten.
+
+jeg skjønner heller ikke hva det vil si med at det trenges "test av funksjonen"

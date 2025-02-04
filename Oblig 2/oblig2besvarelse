@@ -1,0 +1,41 @@
+﻿Oppgave 1
+
+Lag et program som tegner/skriver ut et triangel.
+Funksjonen skal ha følgende signatur:
+void triangel(char tegn, int antall_linjer);
+Dersom funksjonen blir kalt opp med argumentene '*' for tegn og 4 for antall_linjer, skrives dette
+triangelet ut:
+*
+**
+***
+****
+
+Som spurt så kommer oppgaven ut slikt, og da får vi følgendende som et rettvinklet trekant!
+Oppgave 2 
+
+Lag en funksjon som konverterer mellom liten og stor bokstav. F.eks. Dersom 'a' er argumentet så skal funksjonen returnere 'A' og dersom 'A' er argumentet så skal 'a' returneres.
+Notis: Det er ikke lov til å bruke innebygde funksjoner for å gjøre konverteringen.
+
+
+Så slik jeg har forstått så vil jeg skrive et while loop = true slik at den runner konstant, som da tar inn bruker input og konverter det, jeg vil gi brukeren en query der jeg spørr etter Stor “A” eller liten “a”, og det står at jeg ikke har lov å bruke innebygde funksjoner som jeg har ingen anelse hva det betyr.
+
+
+
+
+Oppgave 3. 
+Lag en funksjon som skriver ut tall i et gitt område, sammen med en indikasjon om tallet er oddetall
+eller partall, og om et annet tall er faktor i tallet.
+
+Her ender jeg opp med et problem da jeg oppsetter systemet til å inkludere tilkallingen av funksjonen i main(void) ettersom dette feilsøker jeg etter å ha kommet meg videre i oppgavene slik at det er lettere. 
+
+
+
+Oppgave 4 
+Avstanden mellom to punkt i planet, hvor (𝑥1,𝑦1) er punkt 1 og (𝑥2,𝑦2) er punkt to er definert som: 
+√(𝑥1 −𝑥2)2 +(𝑦1 −𝑦2)2 
+Lag en funksjon som kalkulerer avstanden mellom to punkt i planet. 
+Hint: Bruk math.h
+
+ved bruk av https://stackoverflow.com/questions/18733675/to-the-power-of-in-c 
+
+finner jeg ut at får å skrive x^1,y^1, kan jeg bruke pow((x,y),2); for å vise hva jeg vil dette prøver jeg. 

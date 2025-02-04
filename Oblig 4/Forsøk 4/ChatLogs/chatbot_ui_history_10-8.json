@@ -1,0 +1,83 @@
+{
+  "version": 4,
+  "history": [
+    {
+      "id": "63d33c39-ade1-4aba-a5c9-ab074dd12598",
+      "name": "hva er et innebygd funksjon?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hva er et innebygd funksjon?"
+        },
+        {
+          "role": "assistant",
+          "content": "Et innebygd funksjon (ofte referert til som en \"innebygd\" eller \"innbygd funksjon\" på engelsk \"built-in function\") er en funksjon som er forhåndsdefinert og tilgjengelig som en del av et programmeringsspråk eller et rammeverk. Disse funksjonene er allerede implementert og klare til å brukes uten at brukeren trenger å definere dem selv. \n\nFor eksempel, i Python er `print()`, `len()`, og `max()` alle eksempler på innebygde funksjoner. De utfører henholdsvis utskrift til konsoll, beregning av lengden på en datastruktur, og finning av det største elementet i en iterabel.\n\nInnebygde funksjoner er designet for å gjøre programmering mer effektiv ved å tilby vanlige funksjonaliteter som er optimalisert og klar til bruk, noe som hjelper programmerere med å spare tid og unngå feil."
+        },
+        {
+          "role": "user",
+          "content": "er det noen errorer i denne koden? \n\n#include <stdio.h> \n#include <stdbool.h>\n/*  Globale variabler */\n\nint main() \n{ // \"gitt område\"\n     //  while (isRunning) {\nbool isRunning = true;  //global value input\n\n// char little = 'a';\n// char big = 'A';\n    int INPUTASCII = NULL ;\n //use ascii karakter translation instead\nint char1, char2;\nint EndeligBrukerBokstav;      \n// switch (letter) {\n\n//     case 'A':\n//         printf(\"a\");\n//         break; \n//     case 'a':\n//         printf(\"A\");\n//         break;\n//         default:\n//         printf(\"Please try again: \");\n// } min original strategi var slikt men jeg var fortalt å gå mot ascii bokstaver og tabellen.\n\n printf(\"Skriv et eller to bokstaver, A, eller a. \\n (Denne koden er laget for å kunne forstå to bokstaver om gangen)\");\n\nEndeligBrukerBokstav = scanf(\"%c%c\",&char1, &char2); // declarerer variablen som til å ha en array av 2 karakterer  \n\n\n//vi trenger 3 If løkker, en for å sjekke om A eller a er satt inn, og to som da har om de to forholdene, dersom det er to bokstaver satt inn eller om det er kun en bokstav satt in.\n\n\nif (EndeligBrukerBokstav == 1)\n{\n    if (char1 == 'A')\n    {\n        INPUTASCII = char1 + 32 ; //konverter 'A' til 'a' //differansen mellom Liten og stor A er 32\n        printf (\"%c in lower case is %c\\n\", char1, INPUTASCII);\n    }\n\n} else if (char1 == 'a'){\n    INPUTASCII = char1-32; //konverter 'a' mot 'A' differansen er det samme bare motsatt\n    printf(\"%c in upper case is: %c \\n\", char1, INPUTASCII);\n} else {\n    printf(\"\\n Ugyldig karakter, prøv igjen, enten A, eller a\"); \n}\n\n\n        // nå trenger vi en kode for dobbelte hendelser. \n        if (EndeligBrukerBokstav == 2) \n        {\n            //første av to funksjoner\n        //lignende oppsettelse bare litt annerledes slik at det er plass for en funksjon i tilfellen det er mer \n        //enn før for flere tilfeller.\n            if (char1 == 'A'){\n                INPUTASCII = char1 + 32 ; //konverter 'A' til 'a' //differansen mellom Liten og stor A er 32\n                printf (\"%c i småe bokstav: %c\\n\", char1, INPUTASCII);\n            }\n        } else if (char1 == 'a'){\n            INPUTASCII = char1-32; //konverter 'a' mot 'A' differansen er det samme bare motsatt\n            printf(\"%c i store bokstav er: %c \\n\", char1, INPUTASCII);\n        } else {\n            printf(\"\\n Ugyldig karakter, prøv igjen, enten A, eller a\");\n        }\n\n        // andre plass konvertering av karakter\n                if (char2 == 'A') {\n                    INPUTASCII = char2 +32;  // konverter 'A' til 'a'\n                    printf(\"%c i småe bokstav: %c\\n\", char2, INPUTASCII);\n                } else if (char2 == 'a') {\n                    INPUTASCII = char2 -32;  // konverter 'a' til 'A'\n                    printf(\"%c i store bokstav er %c\\n\", char2, INPUTASCII);\n                } else {\n                    printf(\"\\n Ugyldig karakter, prøv igjen, enten A, eller a\");\n                }\n            }\n//}\n\n\n\n"
+        },
+        {
+          "role": "assistant",
+          "content": "Ja, det er noen problemer og potensielle feil i koden du har gitt. Her er noen av dem:\n\n1. **Variabeldeklarasjon etter kodeblokk**: I C må variabler deklareres i begynnelsen av en blokk før noen uttrykk eller kommandoer utføres. Variabelen `bool isRunning = true;` er deklarert etter en kommentert `while`-løkke, noe som kan være forvirrende og potensielt feilaktig hvis koden endres senere.\n\n2. **Bruk av `NULL` for en `int` variabel**: Du har initialisert `int INPUTASCII = NULL;`. `NULL` brukes vanligvis for pekere, ikke for heltall. Det ville være mer passende å initialisere den til `0` eller en annen heltallsverdi.\n\n3. **Logisk struktur og flyt**: Koden har flere logiske feil i flyten. For eksempel, i blokken der du sjekker `if (EndeligBrukerBokstav == 1)`, utfører du en handling, men den tilsvarende `else`-blokken for `if (char1 == 'A')` mangler. Dette betyr at hvis `char1` er 'a', vil den ikke behandles i denne blokken. Videre, i blokken der du sjekker `if (EndeligBrukerBokstav == 2)`, har du en `else`-blokk som vil kjøre uavhengig av verdien til `char2` hvis `char1` ikke er 'A' eller 'a', noe som ikke virker som det var intensjonen.\n\n4. **Feil i `else`-blokker**: I koden din, etter hver `if`-blokk som sjekker for 'A' eller 'a', har du en `else`-blokk som skriver ut en feilmelding. Dette vil føre til at feilmeldingen skrives ut selv når `char2` er gyldig hvis `char1` ikke er det, og omvendt.\n\n5. **Kommentert kode**: Det er mye kode som er kommentert ut, som kan gjøre det vanskelig å forstå den faktiske flyten og hensikten med programmet. Det er viktig å fjerne eller rydde opp i kommentert kode for klarhet.\n\n6. **Manglende håndtering av input**: Programmet antar at brukeren kun skriver inn gyldige tegn ('A' eller 'a'), og det er ingen håndtering av andre tegn eller små/store bokstaver utover dette.\n\nHer er en forenklet og korrigert versjon av koden som fokuserer på å konvertere 'A' til 'a' og omvendt:\n\n```c\n#include <stdio.h>\n#include <stdbool.h>\n\nint main() {\n    char char1, char2;\n    int numChars;\n\n    printf(\"Skriv inn ett eller to bokstaver (A eller a): \");\n    numChars = scanf(\"%c%c\", &char1, &char2);\n\n    if (numChars > 0) {\n        if (char1 == 'A' || char1 == 'a') {\n            printf(\"%c i motsatt case er: %c\\n\", char1, (char1 ^ 32));\n        } else {\n            printf(\"Ugyldig karakter: %c\\n\", char1);\n        }\n    }\n\n    if (numChars == 2) {\n        if (char2 == 'A' || char2 == 'a') {\n            printf(\"%c i motsatt case er: %c\\n\", char2, (char2 ^ 32));\n        } else {\n            printf(\"Ugyldig karakter: %c\\n\", char2);\n        }\n    }\n\n    return 0;\n}\n```\n\nDenne koden leser inn to tegn og konverterer dem mellom store og små bokstaver ved å bruke XOR-operatoren `^` med 32, som er forskjellen mellom ASCII-verdiene for store og små bokstaver."
+        },
+        {
+          "role": "user",
+          "content": "hva er et lenket liste innenfor C?"
+        },
+        {
+          "role": "assistant",
+          "content": "En lenket liste (på engelsk \"linked list\") er en grunnleggende datastruktur som brukes i programmering for å organisere elementer på en slik måte at hvert element peker på det neste elementet i listen. I C, som ikke har innebygde datastrukturer som i høyere-nivå språk som Java eller Python, implementeres lenkede lister manuelt ved hjelp av strukturer og pekere.\n\n### Komponenter i en Lenket Liste\nEn lenket liste består vanligvis av en serie \"noder\", der hver node inneholder:\n1. **Data**: Verdien eller informasjonen som er lagret i noden.\n2. **Peker til neste node**: En peker som refererer til den neste noden i listen. I en enkeltlenket liste peker hver node kun til den neste noden. I en dobbeltlenket liste har hver node pekere både til den neste og den forrige noden.\n\n### Fordeler med Lenkede Lister\n- **Dynamisk størrelse**: I motsetning til arrays, kan lenkede lister enkelt vokse og krympe i størrelse, noe som gjør dem ideelle for applikasjoner der antall elementer ikke er kjent på forhånd.\n- **Effektiv innsetting og sletting**: Elementer kan legges til eller fjernes fra listen uten å omorganisere hele datastrukturen, noe som ofte er nødvendig i arrays.\n\n### Ulemper med Lenkede Lister\n- **Tilgangstid**: Tilgang til elementer i en lenket liste er lineær i tid, noe som betyr at for å finne et element, må man starte ved hodet av listen og følge pekerne gjennom hvert element.\n- **Minnebruk**: Hver node i en lenket liste krever ekstra minne for pekeren til den neste noden, i tillegg til selve dataene.\n\n### Eksempel på en Enkeltlenket Liste i C\n\nHer er et enkelt eksempel på hvordan man kan definere og bruke en enkeltlenket liste i C:\n\n```c\n#include <stdio.h>\n#include <stdlib.h>\n\n// Definisjon av en node\ntypedef struct Node {\n    int data;\n    struct Node* next;\n} Node;\n\n// Funksjon for å opprette en ny node\nNode* createNode(int data) {\n    Node* newNode = (Node*)malloc(sizeof(Node));\n    if (newNode == NULL) {\n        printf(\"Memory allocation failed\\n\");\n        return NULL;\n    }\n    newNode->data = data;\n    newNode->next = NULL;\n    return newNode;\n}\n\n// Funksjon for å legge til en node på slutten av listen\nvoid appendNode(Node** head, int data) {\n    Node* newNode = createNode(data);\n    if (*head == NULL) {\n        *head = newNode;\n    } else {\n        Node* temp = *head;\n        while (temp->next != NULL) {\n            temp = temp->next;\n        }\n        temp->next = newNode;\n    }\n}\n\n// Funksjon for å skrive ut listen\nvoid printList(Node* head) {\n    Node* temp = head;\n    while (temp != NULL) {\n        printf(\"%d -> \", temp->data);\n        temp = temp->next;\n    }\n    printf(\"NULL\\n\");\n}\n\nint main() {\n    Node* head = NULL;\n    appendNode(&head, 10);\n    appendNode(&head, 20);\n    appendNode(&head, 30);\n    printList(head);\n    return 0;\n}\n```\n\nI dette eksemplet defineres en node-struktur, og det er funksjoner for å opprette nye noder, legge til noder på slutten av listen, og skrive ut listen."
+        }
+      ],
+      "model": {
+        "id": "gpt-3.5-turbo",
+        "name": "GPT-3.5",
+        "maxLength": 12000,
+        "tokenLimit": 4000
+      },
+      "prompt": "You are ChatGPT, a large language model trained by OpenAI. Follow the user's instructions carefully. Respond using markdown.",
+      "temperature": 0.2,
+      "folderId": null
+    },
+    {
+      "id": "2c269f52-d2bb-42a9-9322-140ede07b7bc",
+      "name": "New Conversation",
+      "messages": [
+        {
+          "role": "user",
+          "content": "complete the following code in C "
+        },
+        {
+          "role": "user",
+          "content": "complete the following code in C\n#include <assert.h>\n#include <stdlib.h>\n#include \"gc.h\"\n\n/*\n *      This reference counting garbage collector works by simply storing a\n *      reference count next to the allocated memory in the following way:\n *\n *          [reference count][allocated memory]\n *\n *      When it gets a call to gc_malloc it simply allocates the give size plus\n *      sizeof(int), and whenever it gets a call to gc_register or gc_free it\n *      shifts the address over by the size of an int to inspect the reference\n *      count.\n *\n */\n\n// Allocates a contiguous piece of garbage-collected memory of a certain size\nvoid *gc_malloc(size_t size) {\n    void *allocated = malloc(size + sizeof(int));\n\n    *(int *) allocated = 1;\n\n    return allocated + sizeof(int);\n}\n\n// Registers use of a certain piece of memory. IE takes a pointer to an\n// already-allocated piece of memory and increments the reference counter for\n// this memory.\nvoid gc_register(void *address) {\n    address = address - sizeof(int);\n    int *reference_count = (int *) address;\n    assert(*reference_count > 0);\n\n    (*reference_count)++;\n}\n\n// Unregisters use of the memory pointed to by ptr. If the reference counter is\n// zero at this point the memory can be safely freed, otherwise it must be kept\n// intact. \nvoid gc_free(void *address) {\n    \n    // someone forgot to implement this\n\n    return;\n}\n"
+        },
+        {
+          "role": "assistant",
+          "content": "```c\n#include <assert.h>\n#include <stdlib.h>\n#include \"gc.h\"\n\n/*\n *      This reference counting garbage collector works by simply storing a\n *      reference count next to the allocated memory in the following way:\n *\n *          [reference count][allocated memory]\n *\n *      When it gets a call to gc_malloc it simply allocates the give size plus\n *      sizeof(int), and whenever it gets a call to gc_register or gc_free it\n *      shifts the address over by the size of an int to inspect the reference\n *      count.\n *\n */\n\n// Allocates a contiguous piece of garbage-collected memory of a certain size\nvoid *gc_malloc(size_t size) {\n    void *allocated = malloc(size + sizeof(int));\n    if (allocated == NULL) {\n        return NULL; // Handle malloc failure\n    }\n\n    *(int *)allocated = 1; // Initialize reference count to 1\n\n    return (char *)allocated + sizeof(int); // Return a pointer to the memory area, skipping the reference count\n}\n\n// Registers use of a certain piece of memory. IE takes a pointer to an\n// already-allocated piece of memory and increments the reference counter for\n// this memory.\nvoid gc_register(void *address) {\n    if (address == NULL) {\n        return; // Handle null pointer\n    }\n\n    int *reference_count = (int *)((char *)address - sizeof(int)); // Get the address of the reference count\n    assert(*reference_count > 0); // Ensure it's valid to increment\n\n    (*reference_count)++; // Increment the reference count\n}\n\n// Unregisters use of the memory pointed to by ptr. If the reference counter is\n// zero at this point the memory can be safely freed, otherwise it must be kept\n// intact.\nvoid gc_free(void *address) {\n    if (address == NULL) {\n        return; // Handle null pointer\n    }\n\n    int *reference_count = (int *)((char *)address - sizeof(int)); // Get the address of the reference count\n    assert(*reference_count > 0); // Ensure it's valid to decrement\n\n    (*reference_count)--; // Decrement the reference count\n\n    if (*reference_count == 0) {\n        free(reference_count); // Free the block if reference count reaches zero\n    }\n}\n```"
+        }
+      ],
+      "model": {
+        "id": "ChatUiT-4",
+        "name": "GPT-4"
+      },
+      "prompt": "You are ChatGPT, a large language model trained by OpenAI. Follow the user's instructions carefully. Respond using markdown.",
+      "temperature": 0.2,
+      "folderId": null
+    },
+    {
+      "id": "54f6fe64-02a4-4e76-84a8-b300e9bde567",
+      "name": "New Conversation",
+      "messages": [],
+      "model": {
+        "id": "ChatUiT-4",
+        "name": "GPT-4"
+      },
+      "prompt": "You are ChatGPT, a large language model trained by OpenAI. Follow the user's instructions carefully. Respond using markdown.",
+      "temperature": 0.2,
+      "folderId": null
+    }
+  ],
+  "folders": [],
+  "prompts": []
+}
