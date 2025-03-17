@@ -67,7 +67,7 @@ return newList;
  */
 void list_destroy(list_t *list){ //skal frigjøre minnet som lista bruker (liste + noder), men ikke elementene i lista, altså det skal frigjøres plass
     node_t *current = list->head; // si at 
-    node_t *next_node; //intiialiser next node
+    node_t *next_node; //initialiser next node
 
     while (current != NULL){
         next_node = current->next;
@@ -84,15 +84,16 @@ void list_destroy(list_t *list){ //skal frigjøre minnet som lista bruker (liste
  * Adds an item first in the provided list.
  */
 void list_addfirst(list_t *list, void *item){
-    node_t *new_node =create_node(item);
+        node_t *new_node =create_node(item);
+    
     if (new_node ==NULL)
         return; //dersom malloc feiler
     
     new_node->next = list->head;
     list->head = new_node;
-    if (list->size == 0)
-      list->tail = new_node;
-
+    if (list->size == 0){
+        list->tail = new_node;
+    }
     list->size++;
 }
 
@@ -102,16 +103,18 @@ void list_addfirst(list_t *list, void *item){
  */
 void list_addlast(list_t *list, void *item) {
     node_t *new_node =create_node(item);
-    if (new_node ==NULL)
+    
+    if (new_node ==NULL) {
         return; //dersom malloc feiler
+    }
+    
     if (list->size == 0) {
       list->head = new_node;
       list->tail = new_node;
     } else {
-    list->tail->next = new_node;
-    list->tail = new_node;
+        list->tail->next = new_node;
+        list->tail = new_node;
     }
-
     list->size++;
 
 }
@@ -165,8 +168,6 @@ node_t* list_find(list_t* list, void* item){
  * Return the number of items in the list.
  */
 int list_size(list_t *list){
- 
-
     //
     return (list->size);
 }
